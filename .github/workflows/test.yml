@@ -7,15 +7,15 @@ on: # rebuild any PRs and main branch changes
       - 'releases/*'
 
 jobs:
-  build: # make sure build/ci work properly
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: |
-          npm install
+          yarn install --frozen-lockfile
       - run: |
-          npm run all
-  test: # make sure the action works on a clean machine without building
+          yarn run all
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
